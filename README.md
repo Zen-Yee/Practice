@@ -1,2 +1,4 @@
 # Practice
-Some project I had done as practice
+Some simple projects as my practice.
+
+1. Simple calculator
