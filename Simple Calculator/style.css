@@ -15,11 +15,9 @@ body{
 }
 
 .container{
-    min-width: 440px;
-    width: 100%;
+    width: 440px;
     height: 90%;
     padding: 30px;
-    margin: auto 20%;
     border-radius: 30px;
     background-color: #012840;
 
