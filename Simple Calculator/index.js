@@ -1,5 +1,6 @@
 const Findbuttons = document.getElementsByClassName("button");
 const displayHTML = document.querySelector(".display");
+var reset = false;
 
 /*Notes to self: 
 1.queryselector(selector) returns the first element that match the selector. 
@@ -28,30 +29,44 @@ function handleClick(){
     switch(buttonInnerHTML){
         case "+":
             var button_class = ".press_plus";
-            
+            if(reset){reset = false;} //no need to reset if operator pressed
+            displayHTML.innerHTML = displayHTML.innerHTML + buttonInnerHTML;
             break;
         case "-":
             var button_class = ".press_minus";
-
+            if(reset){reset = false;} //no need to reset if operator pressed
+            displayHTML.innerHTML = displayHTML.innerHTML + buttonInnerHTML;
             break;
         case "*":
             var button_class = ".press_multi";
-
-            break;
-        case "=":
-            var button_class = ".press_equal";
-
+            if(reset){reset = false;} //no need to reset if operator pressed
+            displayHTML.innerHTML = displayHTML.innerHTML + buttonInnerHTML;
             break;
         case "/":
             var button_class = ".press_divide";
-
+            if(reset){reset = false;} //no need to reset if operator pressed
+            displayHTML.innerHTML = displayHTML.innerHTML + buttonInnerHTML;
             break;
         case "back":
             var button_class = ".press_"+buttonInnerHTML;
             displayHTML.innerHTML = displayHTML.innerHTML.slice(0, -1);
             break;
+        case "=":
+            var button_class = ".press_equal";
+            if(displayHTML.innerHTML!=""){
+                displayHTML.innerHTML = eval(displayHTML.innerHTML);
+                reset = true;
+            }
+            break;
         default:
             var button_class = ".press_"+buttonInnerHTML;
+
+            if(reset){
+                displayHTML.innerHTML = "";
+                reset = false;
+            } 
+            //reset calculator since previous calculation already complete
+
             displayHTML.innerHTML = displayHTML.innerHTML + buttonInnerHTML;
             break;
     }
