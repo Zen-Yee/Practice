@@ -1,4 +1,4 @@
 # Practice
-Some simple projects as my practice.
+Simple project I done as practice
 
 1. Simple calculator
